@@ -3,7 +3,7 @@
   <img src="./vulnerable-api.png" alt="drawing" width="800"/>
 
 ## Syllabus
-- [Description](#description) <img class="emoji" title=":tada" alt=":tada:" src= ... height="20" width="20">
+- [Description](#description) <img class="emoji" title=":tada" alt=":tada:" src= ... height="40" width="40">
 - [Features](#features)
 - [Learning Objectives](#learning-objectives)
 - [Installation and Setup](#installation-and-setup)
