@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "efede951-8fdb-4130-a730-29aed957dc9d",
+		"name": "Expense Tracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14598505"
+	},
+	"item": [
+		{
+			"name": "Get All Expenses",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expense By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Expense",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses?id=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Internet Bill\",\n    \"description\":\"Internet Bill\",\n    \"amount\":80.00,\n    \"date\":\"2023-10-10\",\n    \"category\":\"Bill\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/expenses",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Expense Details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Internet Bill\",\n    \"description\":\"Internet Bill\",\n    \"amount\":50.00,\n    \"category\":\"Bill\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/expenses/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Expense By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses/name?name=bill",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "bill"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Expense By Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses/category?category=test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"category"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Expense Between Dates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses/date?startDate=2023-11-12&endDate=2023-12-31",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"date"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2023-11-12"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Orhan Yildirim\",\n    \"email\":\"orhan_yil@msn.com\",\n    \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register?imageUrl=https://jsonplaceholder.typicode.com/todos/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "imageUrl",
+							"value": "https://jsonplaceholder.typicode.com/todos/1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\":\"26\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/3?imageUrl=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"3"
+					],
+					"query": [
+						{
+							"key": "imageUrl",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"jdoe@gmail.com\",\n    \"password\":\"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Orhan Yildirim\",\n    \"email\":\"orhan_yil@msn.com\",\n    \"password\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Expense By Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/expenses/image?category=Bill",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"expenses",
+						"image"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Bill"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
