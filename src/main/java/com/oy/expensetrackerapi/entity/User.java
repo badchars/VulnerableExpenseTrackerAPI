@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tbl_users")
+@Table(name = "TBL_USERS")
 @Data
 public class User {
 
@@ -33,7 +33,7 @@ public class User {
     @JsonIgnore
     private String password;
 
-    private String userEncodedImage;
+    private String userEncodedImage = "test_user";
 
     private Long age;
 

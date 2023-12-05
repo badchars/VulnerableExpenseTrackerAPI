@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 // TODO: Vulnerability-2 Improper Error Handling
 // Secure Code - Need to use ControllerAdvice annotation
-//@ControllerAdvice
+@ControllerAdvice
 public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
