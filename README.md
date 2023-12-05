@@ -10,7 +10,7 @@
 - [Swagger Documentation](#swagger-documentation)
 - [Postman Collection & Environment](#postman-collection--environment)
 
- ## Description
+ ## Description :notebook:
 The Vulnerable Expense Tracker API serves as a purpose-built application designed to expose various security vulnerabilities commonly encountered in real-world APIs. This intentionally vulnerable API is a valuable resource for API security professionals, penetration testers, and developers seeking to enhance their understanding of potential threats and security best practices.
 
 This Vulnerable Expense Tracker API serves as a valuable educational tool, empowering API security professionals to hone their skills and enhance their ability to secure APIs in real-world applications.
