@@ -2,7 +2,7 @@
 
   <img src="./vulnerable-api.png" alt="drawing" width="800"/>
 
-## Syllabus
+## Syllabus  :blue_book:
 - [Description](#description)
 - [Features](#features)
 - [Learning Objectives](#learning-objectives)
@@ -19,7 +19,7 @@ This Vulnerable Expense Tracker API serves as a valuable educational tool, empow
 
 
 
-## Features
+## Features  :ticket:
 1. IDOR (Insecure Direct Object Reference): The API deliberately includes three distinct cases of Insecure Direct Object Reference vulnerabilities, providing a practical scenario to explore and understand this common threat.
 
 2. Rate Limiting Issues: Explore vulnerabilities related to rate limiting and understand the potential risks associated with inadequate rate control mechanisms.
@@ -36,13 +36,13 @@ This Vulnerable Expense Tracker API serves as a valuable educational tool, empow
 
 8. Improper Error Handling: Investigate the consequences of improper error handling and the potential security risks associated with revealing too much information in error responses.
 
-## Learning Objectives:
+## Learning Objectives :pill:
 Gain hands-on experience in identifying and exploiting common API vulnerabilities.
 
 Understand the impact of insecure API practices on overall system security.
 Learn how to implement secure coding practices to mitigate potential threats.
 
-## Installation and Setup:
+## Installation and Setup :construction:
 1. Clone the repository
 ```shell
 git clone https://github.com/badchars/VulnerableExpenseTrackerAPI.git
@@ -58,7 +58,7 @@ docker-compose up
 4. After successfully executing docker compose yml you should access the application on http://localhost:8080/api/v1. For create a test user to begin working on this app, you need to call `/register` endpoint. 
 
 
-## Swagger Documentation
+## Swagger Documentation  :closed_book:
 Comprehensive Swagger documentation is available, providing API security professionals with insights into the various endpoints, request payloads, and expected responses.
 
 http://localhost:8080/api/v1/swagger-ui.html#/
@@ -67,7 +67,7 @@ http://localhost:8080/api/v1/swagger-ui.html#/
   <img src="./expense-swagger.png" alt="drawing" width="800"/>
 
 
-## Postman Collection & Environment
+## Postman Collection & Environment :notebook:
 A dedicated Postman collection and environment are provided, facilitating interactive testing and exploration of the API vulnerabilities.
 
 You can find the [postman collection](/Expense%20Tracker%20API.postman_collection.json) and [postman environment](/Expense%20Tracker%20Env.postman_environment.json) in the repository.
