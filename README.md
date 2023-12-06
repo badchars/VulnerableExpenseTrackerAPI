@@ -50,7 +50,7 @@ git clone https://github.com/badchars/VulnerableExpenseTrackerAPI.git
 2. Docker Compose
 ```shell
 cd VulnerableExpenseTrackerAPI 
-docker-compose up 
+docker-compose up -d  
 ```
 3. Check docker container for up and running
 

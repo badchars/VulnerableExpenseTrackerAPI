@@ -1,8 +1,6 @@
 version: '3'
 services:
   myapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: orhanyil/vulnerableexpensetrackerapi:latest
     ports:
       - "8080:8080"
