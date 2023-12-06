@@ -55,6 +55,7 @@ docker-compose up -d
 3. Check docker container for up and running
 
 ![img.png](img.png)
+
 4. After successfully executing docker compose yml you should access the application on http://localhost:8080/api/v1. For create a test user to begin working on this app, you need to call `/register` endpoint. 
 
 
