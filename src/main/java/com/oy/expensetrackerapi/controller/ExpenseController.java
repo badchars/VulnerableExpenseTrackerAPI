@@ -1,6 +1,7 @@
 package com.oy.expensetrackerapi.controller;
 
 import com.oy.expensetrackerapi.entity.Expense;
+import com.oy.expensetrackerapi.entity.User;
 import com.oy.expensetrackerapi.repository.ExpenseRepository;
 import com.oy.expensetrackerapi.service.ExpenseService;
 import io.swagger.annotations.Api;
@@ -9,6 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -77,5 +81,52 @@ public class ExpenseController {
             )                {
         return expenseService.readByDate(startDate, endDate, pageable);
     }
+
+    @GetMapping("/getXFrameOptions")
+    public ResponseEntity getXFrameOptions(Pageable pageable){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Frame-Options", "DENY");
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/getStrictTransportSecurity")
+    public ResponseEntity getStrictTransportSecurity(Pageable pageable){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/getContentType")
+    public ResponseEntity getContentType(Pageable pageable){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/getContentSecurityPolicy")
+    public ResponseEntity getContentSecurityPolicy(Pageable pageable){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Security-Policy", "frame-ancestors 'none';");
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/getAccessControlAllowOrigin")
+    public ResponseEntity getAccessControlAllowOrigin(@RequestHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN) String value){
+
+        if(value == null || value.equalsIgnoreCase("null")) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/getXContentTypeOptions")
+    public ResponseEntity getXContentTypeOptions(Pageable pageable){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Content-Type-Options", "nosniff");
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+
 
 }
