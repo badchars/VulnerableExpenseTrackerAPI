@@ -136,5 +136,12 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/getAzureAPIWithoutRateLimiting")
+    public ResponseEntity getAzureAPIWithoutRateLimiting(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("x-ms-ratelimit-remaining-resource", "Microsoft.Compute/DeleteVMScaleSet3Min;107");
+        return new ResponseEntity(headers,HttpStatus.OK);
+    }
+
 
 }
