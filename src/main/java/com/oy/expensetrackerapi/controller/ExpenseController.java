@@ -83,31 +83,31 @@ public class ExpenseController {
     }
 
     @GetMapping("/getXFrameOptions")
-    public ResponseEntity getXFrameOptions(Pageable pageable){
+    public ResponseEntity getXFrameOptions(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Frame-Options", "DENY");
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(headers,HttpStatus.OK);
     }
 
     @GetMapping("/getStrictTransportSecurity")
-    public ResponseEntity getStrictTransportSecurity(Pageable pageable){
+    public ResponseEntity getStrictTransportSecurity(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(headers,HttpStatus.OK);
     }
 
     @GetMapping("/getContentType")
-    public ResponseEntity getContentType(Pageable pageable){
+    public ResponseEntity getContentType(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(headers,HttpStatus.OK);
     }
 
     @GetMapping("/getContentSecurityPolicy")
-    public ResponseEntity getContentSecurityPolicy(Pageable pageable){
+    public ResponseEntity getContentSecurityPolicy(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Security-Policy", "frame-ancestors 'none';");
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(headers,HttpStatus.OK);
     }
 
     @GetMapping("/getAccessControlAllowOrigin")
@@ -120,13 +120,21 @@ public class ExpenseController {
     }
 
     @GetMapping("/getXContentTypeOptions")
-    public ResponseEntity getXContentTypeOptions(Pageable pageable){
+    public ResponseEntity getXContentTypeOptions(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Content-Type-Options", "nosniff");
+        return new ResponseEntity(headers,HttpStatus.OK);
+    }
+
+    @GetMapping("/getPubliclyAccessibleLeakyAPIs")
+    public ResponseEntity getPubliclyAccessibleLeakyAPIs(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
-
+    @GetMapping("/getPubliclyAccessibleByDesign")
+    public ResponseEntity getPubliclyAccessibleByDesign(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
 
 }
