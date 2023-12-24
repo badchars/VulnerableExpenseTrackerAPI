@@ -142,6 +142,13 @@ public class ExpenseController {
         headers.add("x-ms-ratelimit-remaining-resource", "Microsoft.Compute/DeleteVMScaleSet3Min;107");
         return new ResponseEntity(headers,HttpStatus.OK);
     }
+    @GetMapping("/getXAspNetVersion")
+    public ResponseEntity getXAspNetVersion(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Asp-Net-Version", "2.1");
+        return new ResponseEntity(headers,HttpStatus.OK);
+    }
+
 
 
 }
