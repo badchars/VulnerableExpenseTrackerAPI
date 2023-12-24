@@ -149,6 +149,12 @@ public class ExpenseController {
         return new ResponseEntity(headers,HttpStatus.OK);
     }
 
+    @GetMapping("/getXPoweredBy")
+    public ResponseEntity getXPoweredBy(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-Powered-By", "2.1");
+        return new ResponseEntity(headers,HttpStatus.OK);
+    }
 
 
 }
