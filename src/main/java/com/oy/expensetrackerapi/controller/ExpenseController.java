@@ -156,5 +156,16 @@ public class ExpenseController {
         return new ResponseEntity(headers,HttpStatus.OK);
     }
 
+    @PostMapping("/testHTTPMethods")
+    public ResponseEntity TestHTTPMethodsPost(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/testHTTPMethods")
+    public ResponseEntity TestHTTPMethodsGet(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
 
 }
