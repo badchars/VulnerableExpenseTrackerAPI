@@ -166,6 +166,17 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @DeleteMapping("/testHTTPMethods")
+    public ResponseEntity TestHTTPMethodsDelete(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+    @PutMapping("/testHTTPMethods")
+    public ResponseEntity TestHTTPMethodsPut(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 
 
 }
