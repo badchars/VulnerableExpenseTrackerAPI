@@ -157,25 +157,32 @@ public class ExpenseController {
     }
 
     @PostMapping("/testHTTPMethods")
-    public ResponseEntity TestHTTPMethodsPost(){
+    public ResponseEntity testHTTPMethodsPost(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/testHTTPMethods")
-    public ResponseEntity TestHTTPMethodsGet(){
+    public ResponseEntity testHTTPMethodsGet(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/testHTTPMethods")
-    public ResponseEntity TestHTTPMethodsDelete(){
+    public ResponseEntity testHTTPMethodsDelete(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
 
     @PutMapping("/testHTTPMethods")
-    public ResponseEntity TestHTTPMethodsPut(){
+    public ResponseEntity testHTTPMethodsPut(){
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
+    @GetMapping("/unauthenticatedCallingAPI")
+    public ResponseEntity unauthenticatedCallingAPI(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 
 
 
