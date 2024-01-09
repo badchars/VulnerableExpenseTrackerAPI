@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static ch.qos.logback.core.encoder.ByteArrayUtil.hexStringToByteArray;
 
 
 @RestController
@@ -183,7 +186,50 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/getResponseTime")
+    public ResponseEntity getResponseTime() throws InterruptedException {
+        Thread.sleep(TimeUnit.SECONDS.toMillis(35));
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
+    @GetMapping("/checkContainsSensitiveDataIPAddress")
+    public ResponseEntity checkContainsSensitiveDataIPAddress() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkServerSideRequestForgery")
+    public ResponseEntity checkServerSideRequestForgery() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkSequentialIDsAttack")
+    public ResponseEntity checkSequentialIDsAttack() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/massiveDataOnResponse")
+    public ResponseEntity massiveDataOnResponse() {
+        byte[] result = new byte[4000000];
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/nullValueAcception")
+    public ResponseEntity nullValueAcception() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+    @GetMapping("/JWTSensitiveDataDisclosure")
+    public ResponseEntity JWTSensitiveDataDisclosure() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("isAdmin", "true");
+        headers.add("password", "1234");
+        headers.add("name", "name");
+        return new ResponseEntity(headers,HttpStatus.OK);
+    }
+
+    @GetMapping("/sendingJWTInURLParameters")
+    public ResponseEntity sendingJWTInURLParameters() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
 
 }
