@@ -1,14 +1,13 @@
 package com.oy.expensetrackerapi.controller;
 
 import com.oy.expensetrackerapi.entity.Expense;
-import com.oy.expensetrackerapi.entity.User;
+import com.oy.expensetrackerapi.entity.ValueObject;
+import com.oy.expensetrackerapi.entity.MassAssignment;
 import com.oy.expensetrackerapi.repository.ExpenseRepository;
 import com.oy.expensetrackerapi.service.ExpenseService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,8 +18,6 @@ import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static ch.qos.logback.core.encoder.ByteArrayUtil.hexStringToByteArray;
 
 
 @RestController
@@ -197,6 +194,33 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/checkContainsSensitiveDataTCKN")
+    public ResponseEntity checkContainsSensitiveDataTCKN() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkContainsSensitiveDataSSN")
+    public ResponseEntity checkContainsSensitiveDataSSN() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkContainsSensitiveDataEmail")
+    public ResponseEntity checkContainsSensitiveDataEmail() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkContainsSensitiveDataGoogleAPIKey")
+    public ResponseEntity checkContainsSensitiveDataGoogleAPIKey() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/checkContainsSensitiveDataCreditCard")
+    public ResponseEntity checkContainsSensitiveDataCreditCard() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+
     @GetMapping("/checkServerSideRequestForgery")
     public ResponseEntity checkServerSideRequestForgery() {
         return new ResponseEntity(HttpStatus.OK);
@@ -230,6 +254,65 @@ public class ExpenseController {
     public ResponseEntity sendingJWTInURLParameters() {
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @GetMapping("/massAssignment")
+    public MassAssignment massAssignment(@RequestBody MassAssignment request) {
+        return MassAssignment.builder().name("ali").surname("gel").email("ali@gmail.com").role("admin").build();
+    }
+
+    @GetMapping("/massAssignmentChangedData")
+    public MassAssignment massAssignmentChangedData(@RequestBody MassAssignment request) {
+        return MassAssignment.builder().name(request.getName()).surname(request.getSurname()).email(request.getEmail()).role("roleChanged").build();
+    }
+
+    @GetMapping("/improperInputValidation")
+    public ResponseEntity improperInputValidation(@RequestBody ValueObject request) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureTCKN")
+    public ValueObject sensitiveInformationDisclosureTCKN() {
+        return ValueObject.builder().value("76045903576").build();
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureSSN")
+    public ValueObject sensitiveInformationDisclosureSSN() {
+        return ValueObject.builder().value("540-71-1234").build();
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureCreditCard")
+    public ValueObject sensitiveInformationDisclosureCreditCard() {
+        return ValueObject.builder().value("1392466526007745").build();
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureEMail")
+    public ValueObject sensitiveInformationDisclosureEMail() {
+        return ValueObject.builder().value("sample@gmail.com").build();
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureGoogleAPIKey")
+    public ValueObject sensitiveInformationDisclosureGoogleAPIKey() {
+        return ValueObject.builder().value("AIzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa").build();
+    }
+
+    @GetMapping("/sensitiveInformationDisclosureFullPathDisclosure")
+    public ValueObject sensitiveInformationDisclosureGoogleFullPathDisclosure() {
+        return ValueObject.builder().value("myfile.txt").build();
+    }
+
+    @GetMapping("/improperAssetsManagementVersionEndpoint/v3")
+    public ResponseEntity improperAssetsManagementVersion() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/improperAssetsManagementVersionQueryString")
+    public ResponseEntity improperAssetsManagementQueryString(@RequestParam("v") String version) {
+        if(version.equalsIgnoreCase("3")) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    }
+
 
 
 }
