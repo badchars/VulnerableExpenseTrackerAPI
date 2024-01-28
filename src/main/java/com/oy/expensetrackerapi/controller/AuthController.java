@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RestController
+@RestController()
+@RequestMapping("/v1")
 @Api(tags = "Login API", description = "User/Admin login apis")
-@RequestMapping()
 public class AuthController {
 
     @Autowired

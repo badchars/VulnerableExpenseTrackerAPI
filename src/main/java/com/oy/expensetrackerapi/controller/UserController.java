@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RestController
+@RestController()
+@RequestMapping("/v1")
 @Api(tags = "User API", description = "UserCRUD Operations")
 public class UserController {
 

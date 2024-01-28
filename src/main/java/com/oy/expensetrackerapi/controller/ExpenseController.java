@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-@RestController
+@RestController()
+@RequestMapping("/v1")
 @Api(tags = "Expense API", description = "Expense CRUD Operations")
 public class ExpenseController {
 
@@ -300,7 +301,7 @@ public class ExpenseController {
         return ValueObject.builder().value("myfile.txt").build();
     }
 
-    @GetMapping("/improperAssetsManagementVersionEndpoint/v3")
+    @GetMapping("/improperAssetsManagementVersionEndpoint")
     public ResponseEntity improperAssetsManagementVersion() {
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -311,6 +312,22 @@ public class ExpenseController {
             return new ResponseEntity(HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/improperAssetsManagementVersionHeader")
+    public ResponseEntity improperAssetsManagementVersionHeader(@RequestHeader("v") String version) {
+        if(version.equalsIgnoreCase("3")) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/byPassXFFHeader")
+    public ResponseEntity byPassXFFHeader(@RequestHeader(value = "X-Originating-IP", required = false) String value) {
+        if(value != null) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.UNAUTHORIZED);
     }
 
 
