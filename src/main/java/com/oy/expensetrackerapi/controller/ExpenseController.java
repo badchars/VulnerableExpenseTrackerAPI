@@ -330,6 +330,11 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.UNAUTHORIZED);
     }
 
+    @GetMapping("/cors")
+    public ResponseEntity cors(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 
 
 }
