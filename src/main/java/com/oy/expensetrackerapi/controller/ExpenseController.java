@@ -1,6 +1,7 @@
 package com.oy.expensetrackerapi.controller;
 
 import com.oy.expensetrackerapi.entity.Expense;
+import com.oy.expensetrackerapi.entity.User;
 import com.oy.expensetrackerapi.entity.ValueObject;
 import com.oy.expensetrackerapi.entity.MassAssignment;
 import com.oy.expensetrackerapi.repository.ExpenseRepository;
@@ -13,10 +14,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.spring.web.json.Json;
 
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 
@@ -334,6 +337,21 @@ public class ExpenseController {
     public ResponseEntity cors(){
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @GetMapping(value = "/graphqlintrospection",  produces = { "application/json" })
+    public ResponseEntity<Object> graphqlintrospection(){
+        return new ResponseEntity("{\n" +
+                "  \"data\": {\n" +
+                "    \"__schema\": {\n" +
+                "      \"queryType\": {\n" +
+                "        \"name\": \"query\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  }\n" +
+                "}",HttpStatus.OK);
+    }
+
+
 
 
 
