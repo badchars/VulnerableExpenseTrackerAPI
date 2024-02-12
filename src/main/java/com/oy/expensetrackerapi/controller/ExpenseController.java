@@ -366,6 +366,10 @@ public class ExpenseController {
         return valueObjects;
     }
 
+    @GetMapping("/pollutionProto")
+    public ResponseEntity pollutionProto(@RequestBody Object obj){
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
 
 }
