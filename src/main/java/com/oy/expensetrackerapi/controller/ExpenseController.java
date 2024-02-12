@@ -299,6 +299,11 @@ public class ExpenseController {
         return ValueObject.builder().value("AIzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa").build();
     }
 
+    @GetMapping("/sensitiveInformationDisclosureInternalIpAddress")
+    public ValueObject sensitiveInformationDisclosureInternalIpAddress() {
+        return ValueObject.builder().value("30.168.1.255.1").build();
+    }
+
     @GetMapping("/sensitiveInformationDisclosureFullPathDisclosure")
     public ValueObject sensitiveInformationDisclosureGoogleFullPathDisclosure() {
         return ValueObject.builder().value("myfile.txt").build();
