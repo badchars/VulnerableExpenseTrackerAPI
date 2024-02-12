@@ -1,5 +1,6 @@
 package com.oy.expensetrackerapi.controller;
 
+import com.oy.expensetrackerapi.config.SwaggerConfig;
 import com.oy.expensetrackerapi.entity.Expense;
 import com.oy.expensetrackerapi.entity.User;
 import com.oy.expensetrackerapi.entity.ValueObject;
@@ -17,9 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.spring.web.json.Json;
 
 import javax.validation.Valid;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -343,6 +342,7 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
     @GetMapping(value = "/graphqlintrospection",  produces = { "application/json" })
     public ResponseEntity<Object> graphqlintrospection(){
         return new ResponseEntity("{\n" +
@@ -357,6 +357,14 @@ public class ExpenseController {
     }
 
 
+    @GetMapping("/getAllEndpoints")
+    public ArrayList<ValueObject> getAllEndpoints() {
+        Set<String> allEndpoints = SwaggerConfig.allEndpoints;
+        ArrayList<ValueObject> valueObjects = new ArrayList<>();
+        allEndpoints.parallelStream().forEach(s -> valueObjects.add(ValueObject.builder().value(s).build()));
+
+        return valueObjects;
+    }
 
 
 
