@@ -381,4 +381,9 @@ public class ExpenseController {
         return ValueObject.builder().value("2001:0db8:85a3:0000:0000:8a2e:0370:7334").build();
     }
 
+    @GetMapping("/sensitiveInformationMACAddress")
+    public ValueObject sensitiveInformationMACAddress() {
+        return ValueObject.builder().value("00:11:22:33:44:55").build();
+    }
+
 }
