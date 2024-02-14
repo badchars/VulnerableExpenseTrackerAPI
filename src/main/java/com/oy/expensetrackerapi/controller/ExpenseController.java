@@ -376,4 +376,9 @@ public class ExpenseController {
         return ValueObject.builder().value("1KwBRs6CioGM2pFdzQsxyrSZ9ynJQr7Amd").build();
     }
 
+    @GetMapping("/sensitiveInformationIPv6Address")
+    public ValueObject sensitiveInformationIPv6Address() {
+        return ValueObject.builder().value("2001:0db8:85a3:0000:0000:8a2e:0370:7334").build();
+    }
+
 }
