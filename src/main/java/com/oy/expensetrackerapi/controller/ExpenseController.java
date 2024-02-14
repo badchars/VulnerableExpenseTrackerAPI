@@ -371,5 +371,9 @@ public class ExpenseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/sensitiveInformationBitcoinWalletAddress")
+    public ValueObject sensitiveInformationBitcoinWalletAddress() {
+        return ValueObject.builder().value("1KwBRs6CioGM2pFdzQsxyrSZ9ynJQr7Amd").build();
+    }
 
 }
